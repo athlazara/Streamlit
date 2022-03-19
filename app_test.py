@@ -2,6 +2,8 @@
 import streamlit as st
 import random
 import numpy as np
+
+r15c1,r15c2,r15c3 = st.columns([6,3,9])
 with r15c1:
     r15form = st.form("r15form")
     num_rows = int(r15form.number_input("请输入行数 Input Rows：",1,100,20,1))
