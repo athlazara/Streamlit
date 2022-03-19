@@ -1,4 +1,5 @@
 # Code by jollysoul
+import streamlit as st
 import random
 import numpy as np
 with r15c1:
