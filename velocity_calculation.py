@@ -37,7 +37,7 @@ for i in range(20):
     time.append(t)
     speed.append(v)
     distance.append(s)
-    unit = ['%.1f'%t, '%.0f'%v, '%.2f'%s]
+    unit = ['%.2f'%t, '%.2f'%v, '%.2f'%s]
     data.append(unit)
     base_line.append(419.35)
 
