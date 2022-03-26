@@ -41,9 +41,9 @@ for i in range(20):
     data.append(unit)
     base_line.append(419.35)
 
-df = pd.DataFrame(data, columns=('时间(s)', '速度(mm/s)', '距离(mm)'), 200, 500)
+df = pd.DataFrame(data, columns=('时间(s)', '速度(mm/s)', '距离(mm)'), rows=(str(i+1) for i in range(20)))
 #print(df.round({'时间(s)':2, '速度(mm/s)':2, '距离(mm)':2})) 无效,streamlit会自动填充小数位数
-st.dataframe(df.style.set_properties(**{'text-align': 'right'}), 300, 500)
+st.dataframe(df.style.set_properties(**{'text-align': 'right'}), 300, 300)
 
 st.subheader('散点图：')
 p = figure(title='速度&距离', x_axis_label='时间(s)', y_axis_label='mm/s & mm')
