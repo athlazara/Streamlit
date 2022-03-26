@@ -10,7 +10,7 @@ st.latex(r'\boxed{S = \frac12 a{t_1}^2 + V_{max} t_2}')# \times
 a = st.slider('选择加速度', 0, 2000, 1550)
 st.write("当前加速度为 ", a, "mm/s²")
 
-m = st.slider('设定速度上限', 0, 30000, 30000)
+m = st.slider('设定速度上限', 0, 40000, 30000)
 st.write("当前加速度为 ", m, "mm/min")
 v_max = m/60
 
