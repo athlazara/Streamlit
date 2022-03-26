@@ -16,6 +16,7 @@ v_max = m/60
 
 st.subheader('时间、速度与距离表：')
 
+rows = []
 data = []
 time = []
 speed = []
@@ -37,11 +38,12 @@ for i in range(20):
     time.append(t)
     speed.append(v)
     distance.append(s)
-    unit = ['%.2f'%t, '%.2f'%v, '%.2f'%s]
+    unit = ['%.1f'%t, '%.0f'%v, '%.2f'%s]
     data.append(unit)
     base_line.append(419.35)
+    rows.append(i+1)
 
-df = pd.DataFrame(data, columns=('时间(s)', '速度(mm/s)', '距离(mm)'))
+df = pd.DataFrame(data, columns=('时间(s)', '速度(mm/s)', '距离(mm)'), rows=rows, 200, 500)
 #print(df.round({'时间(s)':2, '速度(mm/s)':2, '距离(mm)':2})) 无效,streamlit会自动填充小数位数
 st.dataframe(df.style.set_properties(**{'text-align': 'right'}), 300, 500)
 
