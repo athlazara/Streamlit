@@ -1,4 +1,6 @@
 import streamlit as st
-import opentrons
+from opentrons import containers, instruments, robot
 
-print('Hello world')
+robot.home()
+text = robot.commands()
+st.title(text)
