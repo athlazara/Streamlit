@@ -1,2 +1,5 @@
 bokeh==2.4.1
 opentrons==2.4.2
+pyserial==3.2.1
+requests==2.14.2
+dill==0.2.5
