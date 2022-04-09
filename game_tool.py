@@ -72,13 +72,19 @@ for key_1,value_1 in Dict.items():
                         lines.append(line)
 
 if lines:
-    final = lines[0]
-    if len(lines)>1:
-        for line in lines[1:]:
-            if line[-1]<final[-1]:
-                final = line
-    final.pop()
-    df = pd.DataFrame(final, columns=('道具', '数量'))#[['道具']+[(line[0]) for line in final],['数量']+[line[-1] for line in final]]
-    st.dataframe(df.style.set_properties(**{'text-align': 'right'}), width=300, height=620)
+    col1, col2 = st.columns(2)
+    with col1:
+        final = lines[0]
+        if len(lines)>1:
+            for line in lines[1:]:
+                if line[-1]<final[-1]:
+                    final = line
+        final.pop()
+        df = pd.DataFrame(final, columns=('道具', '数量'))#[['道具']+[(line[0]) for line in final],['数量']+[line[-1] for line in final]]
+        st.dataframe(df.style.set_properties(**{'text-align': 'right'}), width=300, height=620)
+    with col2:
+        lines = [line.pop() for line in lines]
+        df = pd.DataFrame(lines, columns=('道具', '数量' for i in range(len(lines))))
+        st.dataframe(df.style.set_properties(**{'text-align': 'right'}), width=300, height=620)
 else:
     st.subheader('无整数消耗路径！')
