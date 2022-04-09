@@ -4,7 +4,7 @@ import pandas as pd
 st.title('灵魂潮汐升级道具分配工具')
 
 with st.sidebar:
-    bar_1 = st.number_input('第1等级所需经验', value=16911, min_value=0, key='d_0')
+    bar_1 = st.number_input('第1等级所需经验', value=16910, min_value=0, key='d_0')
     bar_2 = st.number_input('第2等级所需经验', value=17660, min_value=0, key='d_0')
     bar_3 = st.number_input('第3等级所需经验', value=18420, min_value=0, key='d_0')
     bar_4 = st.number_input('第4等级所需经验', value=19200, min_value=0, key='d_0')
@@ -72,19 +72,24 @@ for key_1,value_1 in Dict.items():
                         lines.append(line)
 
 if lines:
-    col1, col2 = st.columns(2)
-    with col1:
-        final = lines[0]
-        if len(lines)>1:
-            for line in lines[1:]:
-                if line[-1]<final[-1]:
-                    final = line
-        final.pop()
-        df = pd.DataFrame(final, columns=('道具', '数量'))#[['道具']+[(line[0]) for line in final],['数量']+[line[-1] for line in final]]
-        st.dataframe(df.style.set_properties(**{'text-align': 'right'}), width=300, height=620)
-    with col2:
-        lines = [line.pop() for line in lines]
-        df = pd.DataFrame(lines, columns=('道具', '数量' for i in range(len(lines))))
-        st.dataframe(df.style.set_properties(**{'text-align': 'right'}), width=300, height=620)
+    #1
+    final = lines[0]
+    if len(lines)>1:
+        for line in lines[1:]:
+            if line[-1]<final[-1]:
+                final = line
+    final.pop()
+    df = pd.DataFrame(final, columns=('道具', '数量'))#[,]
+    st.dataframe(df.style.set_properties(**{'text-align': 'right'}), width=300, height=300)
+    #2
+    for line in lines:
+        line.pop()
+    dic = []
+    for line in lines:
+        print(line)
+        dic.append(['道具']+['%.0f'%unit[0] for unit in line])
+        dic.append(['数量']+['%.0f'%unit[1] for unit in line])
+    df = pd.DataFrame(dic)#, columns=(['道具', '数量'] for i in range(len(lines))))
+    st.dataframe(df.style.set_properties(**{'text-align': 'right'}), width=800, height=310)
 else:
     st.subheader('无整数消耗路径！')
