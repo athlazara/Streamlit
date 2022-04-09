@@ -83,4 +83,4 @@ with col2:
         df = pd.DataFrame(final, columns=('道具', '数量'))#[['道具']+[(line[0]) for line in final],['数量']+[line[-1] for line in final]]
         st.dataframe(df.style.set_properties(**{'text-align': 'right'}), width=300, height=620)
     else:
-        subheader('无整数消耗路径！')
+        st.subheader('无整数消耗路径！')
