@@ -71,22 +71,35 @@ for key_1,value_1 in Dict.items():
                         line.append(min_num)
                         lines.append(line)
 
-if lines:
-    #1
+def choose_min(lines):
     final = lines[0]
     if len(lines)>1:
         for line in lines[1:]:
             if line[-1]<final[-1]:
                 final = line
+    lines.remove(final)
     final.pop()
     df = pd.DataFrame(final, columns=('道具', '数量'))#[,]
     st.dataframe(df.style.set_properties(**{'text-align': 'right'}), width=300, height=300)
+
+if lines:
+    col1, col2, col3, col4 = st.columns(4)
+    with col1:
+        choose_min(lines)
+    with col2:
+        if lines:
+            choose_min(lines)
+    with col3:
+        if lines:
+            choose_min(lines)
+    with col4:
+        if lines:
+            choose_min(lines)
     #2
     for line in lines:
         line.pop()
     dic = []
     for line in lines:
-        print(line)
         dic.append(['道具']+['%.0f'%unit[0] for unit in line])
         dic.append(['数量']+['%.0f'%unit[1] for unit in line])
     df = pd.DataFrame(dic)#, columns=(['道具', '数量'] for i in range(len(lines))))
