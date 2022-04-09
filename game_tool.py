@@ -3,7 +3,7 @@ import pandas as pd
 
 st.title('灵魂潮汐升级道具分配工具')
 
-with st.sidebar.expander("设定经验值"):
+with st.sidebar:
     bar_1 = st.number_input('第1等级所需经验', value=16911, min_value=0, key='d_0')
     bar_2 = st.number_input('第2等级所需经验', value=17660, min_value=0, key='d_0')
     bar_3 = st.number_input('第3等级所需经验', value=18420, min_value=0, key='d_0')
