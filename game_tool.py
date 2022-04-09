@@ -3,9 +3,8 @@ import pandas as pd
 
 st.title('灵魂潮汐升级道具分配工具')
 
-col1, col2, col3 = st.columns(3)
-with col1:
-    bar_1 = st.number_input('第1等级所需经验', value=16910, min_value=0, key='d_0')
+with st.sidebar.expander("设定经验值"):
+    bar_1 = st.number_input('第1等级所需经验', value=16911, min_value=0, key='d_0')
     bar_2 = st.number_input('第2等级所需经验', value=17660, min_value=0, key='d_0')
     bar_3 = st.number_input('第3等级所需经验', value=18420, min_value=0, key='d_0')
     bar_4 = st.number_input('第4等级所需经验', value=19200, min_value=0, key='d_0')
@@ -72,15 +71,14 @@ for key_1,value_1 in Dict.items():
                         line.append(min_num)
                         lines.append(line)
 
-with col2:
-    if lines:
-        final = lines[0]
-        if len(lines)>1:
-            for line in lines[1:]:
-                if line[-1]<final[-1]:
-                    final = line
-        final.pop()
-        df = pd.DataFrame(final, columns=('道具', '数量'))#[['道具']+[(line[0]) for line in final],['数量']+[line[-1] for line in final]]
-        st.dataframe(df.style.set_properties(**{'text-align': 'right'}), width=300, height=620)
-    else:
-        st.subheader('无整数消耗路径！')
+if lines:
+    final = lines[0]
+    if len(lines)>1:
+        for line in lines[1:]:
+            if line[-1]<final[-1]:
+                final = line
+    final.pop()
+    df = pd.DataFrame(final, columns=('道具', '数量'))#[['道具']+[(line[0]) for line in final],['数量']+[line[-1] for line in final]]
+    st.dataframe(df.style.set_properties(**{'text-align': 'right'}), width=300, height=620)
+else:
+    st.subheader('无整数消耗路径！')
