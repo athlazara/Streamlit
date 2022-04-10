@@ -6,7 +6,7 @@ st.title('灵魂潮汐升级道具分配工具')
 with st.sidebar:
     col1, col2 = st.columns(2)
     with col1:
-        exp_1 = st.checkbox('30点')
+        exp_1 = st.checkbox('30点', value=True)
         exp_3 = st.checkbox('300点')
     with col2:
         exp_2 = st.checkbox('100点')
