@@ -131,4 +131,4 @@ if lines:
     st.dataframe(df.style.set_properties(**{'text-align': 'center'}), width=1000, height=310)
 else:
     '**_无整数消耗路径！_**'+':ghost:'
-    st.markdown("<font color=red size=20>{无整数消耗路径！}</font>", unsafe_allow_html=True)
+    st.markdown("<font color=red size=20>**_无整数消耗路径！_**</font>"+':ghost:', unsafe_allow_html=True)
