@@ -130,4 +130,4 @@ if lines:
     #df.style.hide_index() 隐藏序号无效
     st.dataframe(df.style.set_properties(**{'text-align': 'center'}), width=1000, height=310)
 else:
-    st.markdown('**_无整数消耗路径！_**')
+    '**_无整数消耗路径！_**', :ghost:
