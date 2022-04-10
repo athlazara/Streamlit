@@ -31,8 +31,8 @@ with st.sidebar.expander("经验值设定"):
             bar_list = [bar_1, bar_2, bar_3, bar_4, bar_5]
 
 exp_list = []
-#if exp_1:
-exp_list.append(30)
+if exp_1:
+    exp_list.append(30)
 if exp_2:
     exp_list.append(100)
 if exp_3:
