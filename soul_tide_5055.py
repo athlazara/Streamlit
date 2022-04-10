@@ -40,8 +40,6 @@ if exp_3:
 if exp_4:
     exp_list.append(1000)
 
-#bar_list = [bar_1, bar_2, bar_3, bar_4, bar_5]
-
 def exp_num(bar, red, exp):
     n = 1
     while exp*n < bar-red:
