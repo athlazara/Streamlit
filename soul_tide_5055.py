@@ -7,10 +7,10 @@ with st.sidebar:
     col1, col2 = st.columns(2)
     with col1:
         exp_1 = st.checkbox('30点', value=True)
-        exp_3 = st.checkbox('300点')
+        exp_3 = st.checkbox('300点', value=True)
     with col2:
-        exp_2 = st.checkbox('100点')
-        exp_4 = st.checkbox('1000点')
+        exp_2 = st.checkbox('100点', value=True)
+        exp_4 = st.checkbox('1000点', value=True)
 
 with st.sidebar:
     select = st.radio("50-55级参数：", ('人物等级参数', '灵蕴等级参数'))
