@@ -48,8 +48,8 @@ with col1:
         st.button('复位', disabled=True)
 with col2:
     with open(path, "rb") as file:
-         btn = st.download_button(
-                 label="下载定位文件",
-                 data=file,
-                 file_name="calibrations.json",
-                 mime="json")
+        btn = st.download_button(
+                label="下载定位文件",
+                data=file,
+                file_name="calibrations.json",
+                mime="json")
