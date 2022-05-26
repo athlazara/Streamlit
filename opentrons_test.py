@@ -47,7 +47,7 @@ with col1:
     else:
         st.button('复位', disabled=True)
 with col2:
-    with open(path, "r") as file:
+    with open('calibrations.json', "r") as file:
         st.download_button(
             label="下载定位文件",
             data=file,
