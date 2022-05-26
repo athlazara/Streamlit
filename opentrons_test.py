@@ -6,8 +6,8 @@ from opentrons.util import environment
 switch = False
 ports = ['COM1']#robot.get_serial_ports_list()
 ports += ['断开连接']
-red = Image.open(r'https://github.com/athlazara/Streamlit/red circle.jpg')
-green = Image.open(r'https://github.com/athlazara/Streamlit/green circle.jpg')
+red = Image.open('red circle.jpg')
+green = Image.open('green circle.jpg')
 
 # 界面
 st.title('连接测试')
