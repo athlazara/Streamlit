@@ -4,7 +4,7 @@ from opentrons import robot, containers, instruments
 from opentrons.util import environment
 
 switch = False
-ports = ['COM1']#robot.get_serial_ports_list()
+ports = robot.get_serial_ports_list()
 ports += ['断开连接']
 red = Image.open('red circle.jpg')
 green = Image.open('green circle.jpg')
@@ -17,7 +17,7 @@ with col1:
     port = st.selectbox('请选择端口：', ports)
     if port!='断开连接':
         try:
-            #robot.connect(port)
+            robot.connect(port)
             switch = True
         except (FileNotFoundError, WindowsError):
             pass
@@ -47,10 +47,9 @@ with col1:
     else:
         st.button('复位', disabled=True)
 with col2:
-    file = open(path, "r")
-    st.download_button(
-        label="下载定位文件",
-        data=file,
-        file_name="calibrations.json",
-        mime="json")
-    file.close()
+    with open(path, "rb") as file:
+        st.download_button(
+            label="下载定位文件",
+            data=file,
+            file_name="calibrations.json",
+            mime="json")
